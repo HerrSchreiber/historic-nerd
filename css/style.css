@@ -218,7 +218,7 @@ li {
   vertical-align: middle;
 }
 
-@media screen and (max-width: 960px) {
+@media only screen and (max-width: 960px) {
   #main {
     display: block;
     width: 100%;
@@ -233,7 +233,7 @@ li {
   }
 }
 
-@media screen and (max-width: 640px) {
+@media only screen and (max-width: 640px) {
   #container {
     width: 320px;
   }
