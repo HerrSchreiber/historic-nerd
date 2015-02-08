@@ -296,3 +296,16 @@ li {
     width: 310px;
   }
 }
+
+.browsehappy {
+  position:relative;
+  padding:.4em;
+  color:#A94442;
+  text-align:center;
+  background-color:#F2DEDE;
+}
+.browsehappy a {
+  color:#A94442;
+  font-weight:bold;
+  border-bottom:1px dashed #A94442;
+}
