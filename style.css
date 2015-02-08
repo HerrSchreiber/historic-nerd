@@ -81,6 +81,14 @@ body {
   background-color: magenta;
 }
 
+#related-posts {
+
+}
+
+#related-videos {
+
+}
+
 #popular-videos {
 
 }
@@ -118,6 +126,24 @@ body {
   vertical-align: middle;
 }
 
+#video {
+  width: 630px;
+  height: 410px;
+  background-color: chartreuse;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+#post {
+  width: 630px;
+  height: 410px;
+  background-color: chartreuse;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+}
+
 .main-video {
   width: 630px;
   height: 200px;
@@ -127,6 +153,13 @@ body {
 
 .main-video:hover {
   background-color: cornflowerblue;
+}
+
+#comments {
+  width: 630px;
+  height: 400px;
+  background-color: darkcyan;
+  margin: 20px auto 20px auto;
 }
 
 #footer {
