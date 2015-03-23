@@ -6,6 +6,8 @@ session_start();
 <head>
     <title>Historic Nerd</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
 

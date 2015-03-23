@@ -6,6 +6,13 @@ html, body {
     height: 100%;
     color: #262222;
 }
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Patua One', serif;
+}
+
+p, a {
+    font-family: 'Pontano Sans', sans-serif;
+}
 
 a {
     color: #262222;
@@ -29,7 +36,7 @@ li {
 
 #banner h1 {
     float: left;
-    margin: 6px;
+    margin: 6px 6px 6px 20px;
     font-size: 100px;
 }
 
