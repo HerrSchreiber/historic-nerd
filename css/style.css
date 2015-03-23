@@ -241,6 +241,7 @@ li {
     padding: 0;
     background-color: #630006;
     overflow: hidden;
+    text-align: center;
 }
 
 #footer p {
@@ -249,14 +250,23 @@ li {
     color: #e8e2e3;
 }
 
+#log-in h2, #register h2 {
+    text-align: center;
+}
+
+#log-in div, #register div {
+    margin-right: 20%;
+    margin-top: 2px;
+}
+
 #log-in {
     width: 48%;
     overflow: hidden;
     margin: 20px auto;
     background-color: #e8e2e3;
     border-radius: 10px;
-    text-align: center;
     float: left;
+    text-align: right;
 }
 
 #register {
@@ -265,11 +275,11 @@ li {
     margin: 20px auto;
     background-color: #e8e2e3;
     border-radius: 10px;
-    text-align: center;
     float: right;
+    text-align: right;
 }
 
-.error {
+.error-message {
     color: #e3000d;
     font-weight: bold;
 }
@@ -297,6 +307,24 @@ li {
     #container {
         width: 640px;
         margin: 20px auto 0 auto;
+    }
+
+    #log-in {
+        width: 310px;
+        float: left;
+    }
+
+    #register {
+        width: 310px;
+        float: right;
+    }
+
+    #log-in div, #register div {
+          margin-right: 2%;
+    }
+
+    #log-in div{
+        margin-right: 10%;
     }
 }
 
@@ -379,6 +407,7 @@ li {
     .main-video {
         width: 310px;
     }
+
 
 }
 
