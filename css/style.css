@@ -249,6 +249,31 @@ li {
     color: #e8e2e3;
 }
 
+#log-in {
+    width: 48%;
+    overflow: hidden;
+    margin: 20px auto;
+    background-color: #e8e2e3;
+    border-radius: 10px;
+    text-align: center;
+    float: left;
+}
+
+#register {
+    width: 48%;
+    overflow: hidden;
+    margin: 20px auto;
+    background-color: #e8e2e3;
+    border-radius: 10px;
+    text-align: center;
+    float: right;
+}
+
+.error {
+    color: #e3000d;
+    font-weight: bold;
+}
+
 @media only screen and (max-width: 960px) {
     #nav-container {
         overflow: hidden;

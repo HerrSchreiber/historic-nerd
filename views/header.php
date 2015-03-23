@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,9 +27,19 @@
                 <a href="/views/bloglist.php">
                     <li class="button"><p>Blog Posts</p></li>
                 </a>
-                <a href=#>
+                <?php
+                if (isset($_SESSION["user"])) {
+                ?>
+                <a href="/logout.php">
+                    <li class="button"><p>Log Out</p></li>
+                </a>
+                <?php }
+                else {
+                ?>
+                <a href="/login.php">
                     <li class="button"><p>Log In</p></li>
                 </a>
+                <?php } ?>
             </ul>
         </div>
     </div>
