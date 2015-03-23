@@ -13,17 +13,17 @@
 <![endif]-->
 
 <div id="banner">
-    <a href="index.html"><h1>Historic Nerd</h1></a>
+    <a href="/"><h1>Historic Nerd</h1></a>
 
     <div id="nav-container">
 
         <div id="nav">
             <ul>
-                <a href="video.html">
+                <a href="/views/videolist.php">
                     <li class="button"><p>Videos</p></li>
                 </a>
-                <a href="blog.html">
-                    <li class="button"><p>Blog</p></li>
+                <a href="/views/bloglist.php">
+                    <li class="button"><p>Blog Posts</p></li>
                 </a>
                 <a href=#>
                     <li class="button"><p>Log In</p></li>

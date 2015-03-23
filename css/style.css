@@ -213,6 +213,18 @@ li {
     background-color: cornflowerblue;
 }
 
+.main-post {
+    width: 630px;
+    height: 200px;
+    background-color: darkcyan;
+    margin: 20px auto 20px auto;
+    overflow: hidden;
+}
+
+.main-post:hover {
+    background-color: cornflowerblue;
+}
+
 #comments {
     width: 630px;
     height: 400px;
