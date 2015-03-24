@@ -19,14 +19,14 @@ class Dao {
         return $conn->query("SELECT * FROM users");
     }
 
-    public function getSalt ($email) {
+    /*public function getSalt ($email) {
         $conn = $this->getConnection();
         $getQuery = "SELECT Salt FROM users WHERE Email = :email";
         $q = $conn->prepare($getQuery);
         $q->bindParam(':email', $email);
         $q->execute();
         return reset($q->fetchAll());
-    }
+    }*/
 
     public function createUser ($email, $userName, $password) {
         $salt = base64_encode(openssl_random_pseudo_bytes(12));
@@ -39,5 +39,25 @@ class Dao {
         $q->bindParam(':saltedPassword', $saltedPassword);
         $q->bindParam(':salt', $salt);
         $q->execute();
+    }
+
+    public function getUser ($email) {
+        $conn = $this->getConnection();
+        $getQuery = "SELECT UserName, Admin from users WHERE email = :email";
+        $q = $conn->prepare($getQuery);
+        $q->bindParam(':email', $email);
+        $q->execute();
+        return $q->fetch();
+    }
+
+    public function checkPassword ($email, $password) {
+        $conn = $this->getConnection();
+        $getQuery = "SELECT Salt, SaltedPassword from users WHERE email = :email";
+        $q = $conn->prepare($getQuery);
+        $q->bindParam(':email', $email);
+        $q->execute();
+        $dbResults = $q->fetch();
+        $saltedPassword = hash('sha256', $password . $dbResults['Salt']);
+        return $saltedPassword === $dbResults['SaltedPassword'];
     }
 }

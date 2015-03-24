@@ -15,6 +15,13 @@ if ($_POST["submit"] == "Login") {
     $email = htmlspecialchars($_POST["login-email"]);
 
     if ($dao->checkPassword($email, $_POST["login-password"])) {
+        $user = $dao->getUser($email);
+        $_SESSION["user"] = $user["UserName"];
+        $_SESSION["admin"] = $user["Admin"];
+
+        header ("Location:/");
+    }
+    else {
         $_SESSION["status"] |= INVALID_USER_NAME_OR_PASSWORD;
         $_SESSION["email_login_preset"] = $_POST["login-email"];
 

@@ -5,7 +5,8 @@ try {
     $users = $dao->getUsers();
     echo "<ul>";
     foreach ($users as $user) {
-        echo "<li>{$user['UserName']} joined on {$user['DateJoined']}</li>";
+        $userName = $dao->getUser($user['Email'])["UserName"];
+        echo "<li>{$user['UserName']}'s email is {$user['Email']} which belongs to user {$userName}";
     }
     echo "</ul>";
     echo "success";
