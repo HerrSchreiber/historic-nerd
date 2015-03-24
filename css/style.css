@@ -40,6 +40,10 @@ li {
     font-size: 100px;
 }
 
+#logged-in {
+    float: left;
+}
+
 #nav-container {
     overflow: hidden;
     width: 960px;

@@ -44,5 +44,11 @@ session_start();
                 <?php } ?>
             </ul>
         </div>
+        <?php if (isset($_SESSION['user'])) { ?>
+            <div id="logged-in">
+                <p>Logged in as <?php echo $_SESSION['user']; ?></p>
+            </div>
+        <?php } ?>
     </div>
+
 </div>
