@@ -1,32 +1,35 @@
 <?php
 session_start();
+
+require_once "Dao.php";
+
 define("INVALID_USER_NAME_OR_PASSWORD", 1);
 define("PASSWORDS_DO_NOT_MATCH", 2);
 define("USERNAME_TOO_LONG", 4);
 define("NOT_A_VALID_EMAIL", 8);
-$_SESSION["status"] = 0;
-if ($_POST["submit"] == "Login") {
-    if ("admin@historicnerd.com" == $_POST["email"] &&
-        "lollipop" == $_POST["password"]
-    ) {
-        $_SESSION["user"] = "admin";
-        $_SESSION["privileges"] = 2;
-        header("Location:/");
 
-    } else {
+$_SESSION["status"] = 0;
+$dao = new Dao();
+
+if ($_POST["submit"] == "Login") {
+    $email = htmlspecialchars($_POST["login-email"]);
+
+    if ($dao->checkPassword($email, $_POST["login-password"])) {
         $_SESSION["status"] |= INVALID_USER_NAME_OR_PASSWORD;
-        $_SESSION["email_login_preset"] = $_POST["email"];
+        $_SESSION["email_login_preset"] = $_POST["login-email"];
 
         header("Location:/login.php");
     }
 }
 else if ($_POST["submit"] == "Register") {
-    $_SESSION["email_preset"] = $_POST["email"];
-    $_SESSION["user_preset"] = $_POST["user"];
+    $email = htmlspecialchars($_POST["email"]);
+    $userName = htmlspecialchars($_POST["user"]);
+    $_SESSION["email_preset"] = $email;
+    $_SESSION["user_preset"] = $userName;
     if ($_POST["password"] != $_POST["password2"]) {
         $_SESSION["status"] |= PASSWORDS_DO_NOT_MATCH;
     }
-    if (strlen($_POST["user"]) > 35) {
+    if (strlen($userName) > 35) {
         $_SESSION["status"] |= USERNAME_TOO_LONG;
     }
 
@@ -35,7 +38,9 @@ else if ($_POST["submit"] == "Register") {
     }
 
     if ($_SESSION["status"] == 0) {
-        $_SESSION["user"] = $_POST["user"];
+        $_SESSION["user"] = $userName;
+        $_SESSION["admin"] = 0;
+        $dao->createUser($email, $userName, $_POST["password"]);
         header("Location:/");
     }
     else {

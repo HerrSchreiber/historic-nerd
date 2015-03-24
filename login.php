@@ -15,11 +15,11 @@ $user = isset($_SESSION["user_preset"])?$_SESSION["user_preset"]:"";
             <form action="/handlers/login_handler.php" method="POST">
                 <div>
                     <label for="login-email">Email</label>
-                    <input type="text" name="email" id="login-email" value="<?php echo $loginEmail; ?>"/>
+                    <input type="text" name="login-email" id="login-email" value="<?php echo $loginEmail; ?>"/>
                 </div>
                 <div>
                     <label for="login-password">Password</label>
-                    <input type="password" name="password" id="login-password" value=""/>
+                    <input type="password" name="login-password" id="login-password" value=""/>
                 </div>
                 <?php if (isset($_SESSION["status"]) && $_SESSION["status"] & INVALID_USER_NAME_OR_PASSWORD === INVALID_USER_NAME_OR_PASSWORD) { ?>
                 <div class="error-message">
