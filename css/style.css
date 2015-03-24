@@ -178,6 +178,12 @@ li {
     vertical-align: middle;
 }
 
+#control-panel {
+    background-color: #e8e2e3;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .main-label {
     width: 630px;
     overflow: hidden;
