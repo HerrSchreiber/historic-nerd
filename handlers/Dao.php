@@ -14,19 +14,15 @@ class Dao {
                 $this->pass);
     }
 
-    public function getUsers () {
+    public function getUsersByName ($name) {
         $conn = $this->getConnection();
-        return $conn->query("SELECT * FROM users");
+        $getQuery = "SELECT * FROM users WHERE UserName = :name";
+        $q = $conn->prepare($getQuery);
+        $q->bindParam(":name", $name);
+        $q->execute();
+        return $q->fetch(PDO::FETCH_ASSOC);
     }
 
-    /*public function getSalt ($email) {
-        $conn = $this->getConnection();
-        $getQuery = "SELECT Salt FROM users WHERE Email = :email";
-        $q = $conn->prepare($getQuery);
-        $q->bindParam(':email', $email);
-        $q->execute();
-        return reset($q->fetchAll());
-    }*/
 
     public function createUser ($email, $userName, $password) {
         $salt = base64_encode(openssl_random_pseudo_bytes(12));
