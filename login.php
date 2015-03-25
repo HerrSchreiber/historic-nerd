@@ -41,9 +41,12 @@ $user = isset($_SESSION["user_preset"])?$_SESSION["user_preset"]:"";
 
         <div id="register"><h2>Register</h2>
             <form action="/handlers/login_handler.php" method="POST">
+                <?php $userError = (isset($_SESSION["status"]) && ($_SESSION["status"] & USERNAME_TOO_LONG) === USERNAME_TOO_LONG) ||
+                                   (isset($_SESSION["status"]) && ($_SESSION["status"] & USERNAME_ALREADY_TAKEN) === USERNAME_ALREADY_TAKEN) ||
+                                   (isset($_SESSION["status"]) && ($_SESSION["status"] & NO_USERNAME_ENTERED) === NO_USERNAME_ENTERED); ?>
                 <div>
                     <label for="user">User Name</label>
-                    <input type="text" name="user" id="user" value="<?php echo $user; ?>"/>
+                    <input type="text" name="user" id="user" value="<?php echo $user; ?>" <?php if ($userError) echo "class=\"error\"";?>/>
                 </div>
                 <?php if (isset($_SESSION["status"]) && ($_SESSION["status"] & USERNAME_TOO_LONG) === USERNAME_TOO_LONG) { ?>
                     <div class="error-message">
@@ -60,9 +63,12 @@ $user = isset($_SESSION["user_preset"])?$_SESSION["user_preset"]:"";
                         <p>You must enter a user name</p>
                     </div>
                 <?php }?>
+                <?php $emailError = (isset($_SESSION["status"]) && ($_SESSION["status"] & NOT_A_VALID_EMAIL) === NOT_A_VALID_EMAIL) ||
+                                    (isset($_SESSION["status"]) && ($_SESSION["status"] & EMAIL_ALREADY_IN_USE) === EMAIL_ALREADY_IN_USE) ||
+                                    (isset($_SESSION["status"]) && ($_SESSION["status"] & NO_EMAIL_ENTERED) === NO_EMAIL_ENTERED); ?>
                 <div>
                     <label for="email">Email</label>
-                    <input type="text" name="email" id="email" value="<?php echo $email; ?>"/>
+                    <input type="text" name="email" id="email" value="<?php echo $email; ?>" <?php if($emailError) echo "class=\"error\""; ?>/>
                 </div>
                 <?php if (isset($_SESSION["status"]) && ($_SESSION["status"] & NOT_A_VALID_EMAIL) === NOT_A_VALID_EMAIL) { ?>
                     <div class="error-message">
@@ -79,13 +85,16 @@ $user = isset($_SESSION["user_preset"])?$_SESSION["user_preset"]:"";
                         <p>You must enter an email</p>
                     </div>
                 <?php }?>
+                <?php $passwordError = (isset($_SESSION["status"]) && ($_SESSION["status"] & PASSWORDS_DO_NOT_MATCH) === PASSWORDS_DO_NOT_MATCH) ||
+                                       (isset($_SESSION["status"]) && ($_SESSION["status"] & NO_PASSWORD_ENTERED) === NO_PASSWORD_ENTERED) ||
+                                       (isset($_SESSION["status"]) && ($_SESSION["status"] & LOW_QUALITY_PASSWORD) === LOW_QUALITY_PASSWORD); ?>
                 <div>
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" value=""/>
+                    <input type="password" name="password" id="password" value="" <?php if($passwordError) echo "class=\"error\"";?>/>
                 </div>
                 <div>
                     <label for="password2">Confirm Password</label>
-                    <input type="password" name="password2" id="password2" value=""/>
+                    <input type="password" name="password2" id="password2" value="" <?php if($passwordError) echo "class=\"error\"";?>/>
                     <p>Passwords must be at least 8 characters<br>and contain at least 1 capital, 1 number, and 1 punctuation</p>
                 </div>
                 <?php if (isset($_SESSION["status"]) && ($_SESSION["status"] & PASSWORDS_DO_NOT_MATCH) === PASSWORDS_DO_NOT_MATCH) { ?>

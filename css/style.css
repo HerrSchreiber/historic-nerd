@@ -300,6 +300,9 @@ li {
     color: #e3000d;
     font-weight: bold;
 }
+.error {
+    background-color: #ff8888;
+}
 
 @media only screen and (max-width: 960px) {
     #nav-container {
