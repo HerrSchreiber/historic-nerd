@@ -27,7 +27,7 @@ $user = isset($_SESSION["user_preset"])?$_SESSION["user_preset"]:"";
                     <label for="login-password">Password</label>
                     <input type="password" name="login-password" id="login-password" value=""/>
                 </div>
-                <?php if (isset($_SESSION["status"]) && $_SESSION["status"] & INVALID_USER_NAME_OR_PASSWORD === INVALID_USER_NAME_OR_PASSWORD) { ?>
+                <?php if (isset($_SESSION["status"]) && ($_SESSION["status"] & INVALID_USER_NAME_OR_PASSWORD === INVALID_USER_NAME_OR_PASSWORD)) { ?>
                 <div class="error-message">
                     <p>Invalid username or password</p>
                 </div>

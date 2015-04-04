@@ -1,5 +1,6 @@
 <?php
 require "views/header.php";
+unset($_SESSION['status']);
 ?>
 
     <div id="container">
@@ -15,12 +16,12 @@ require "views/header.php";
 
         <div id="sidebar">
             <div id="latest-post" class="side-chunk">
-                <div class="side-label"><p>Latest Post</p></div>
+                <div class="side-label"><h3>Latest Post</h3></div>
                 <div class="side-post"><p>Post 1</p></div>
             </div>
 
             <div id="popular-videos" class="side-chunk">
-                <div class="side-label"><p>Popular Videos</p></div>
+                <div class="side-label"><h3>Popular Videos</h3></div>
                 <div class="side-video"><p>Video 4</p></div>
                 <div class="side-video"><p>Video 5</p></div>
                 <div class="side-video"><p>Video 6</p></div>

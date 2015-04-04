@@ -56,4 +56,25 @@ class Dao {
         $saltedPassword = hash('sha256', $password . $dbResults['Salt']);
         return $saltedPassword === $dbResults['SaltedPassword'];
     }
+
+    public function createVideo ($title, $ytid, $tags) {
+        $conn = $this->getConnection();
+        $createQuery = "INSERT INTO videos (Title, YouTubeVideoID, DateAdded, Tags) VALUES(:title, :ytid, NOW(), :tags)";
+        $q = $conn->prepare($createQuery);
+        $q->bindParam(':title', $title);
+        $q->bindParam(':ytid', $ytid);
+        $q->bindParam(':tags', $tags);
+        $q->execute();
+    }
+
+    public function createPost ($title, $tags, $post) {
+        $conn = $this->getConnection();
+        $createQuery = "INSERT INTO blogposts (Title, Post, DateAdded, Tags) VALUES(:title, :post, NOW(), :tags)";
+        $q = $conn->prepare($createQuery);
+        $q->bindParam(':title', $title);
+        $q->bindParam(':post', $post);
+        $q->bindParam(':tags', $tags);
+        $q->execute();
+    }
+
 }
