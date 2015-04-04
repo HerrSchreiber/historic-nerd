@@ -1,6 +1,9 @@
 <?php
 require "views/header.php";
 unset($_SESSION['status']);
+require_once "handlers/Dao.php";
+$dao = new Dao();
+$videos = $dao->getRecentVideos();
 ?>
 
     <div id="container">
@@ -9,9 +12,13 @@ unset($_SESSION['status']);
                 <h1>CAROUSEL</h1>
             </div>
             <div class="main-label"><h3>Recent Videos</h3></div>
-            <div class="main-video"><p>Video 1</p></div>
-            <div class="main-video"><p>Video 2</p></div>
-            <div class="main-video"><p>Video 3</p></div>
+            <?php
+            for ($i = 0; $i < 3; $i++) {
+                ?>
+                <a href="/views/video.php?<?php echo $videos[$i]['ID'] ?>"><div class="main-video"><h3><?php echo $videos[$i]['Title'] ?></h3></div></a>
+                <?php
+            }
+            ?>
         </div>
 
         <div id="sidebar">
