@@ -88,7 +88,7 @@ class Dao {
 
     public function getRecentPosts () {
         $conn = $this->getConnection();
-        $getQuery = "SELECT Title, ID FROM videos ORDER BY DateAdded";
+        $getQuery = "SELECT Title, ID FROM blogposts ORDER BY DateAdded";
         $q = $conn->prepare($getQuery);
         $q->execute();
         $dbResults = $q->fetchAll();
