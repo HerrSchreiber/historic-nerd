@@ -77,4 +77,22 @@ class Dao {
         $q->execute();
     }
 
+    public function getRecentVideos () {
+        $conn = $this->getConnection();
+        $getQuery = "SELECT Title, ID FROM videos ORDER BY DateAdded";
+        $q = $conn->prepare($getQuery);
+        $q->execute();
+        $dbResults = $q->fetchAll();
+        return $dbResults;
+    }
+
+    public function getRecentPosts () {
+        $conn = $this->getConnection();
+        $getQuery = "SELECT Title, ID FROM videos ORDER BY DateAdded";
+        $q = $conn->prepare($getQuery);
+        $q->execute();
+        $dbResults = $q->fetchAll();
+        return $dbResults;
+    }
+
 }
