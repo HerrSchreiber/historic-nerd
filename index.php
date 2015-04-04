@@ -4,6 +4,7 @@ unset($_SESSION['status']);
 require_once "handlers/Dao.php";
 $dao = new Dao();
 $videos = $dao->getRecentVideos();
+$latestPost = $dao->getRecentPosts()[0];
 ?>
 
     <div id="container">
@@ -15,7 +16,7 @@ $videos = $dao->getRecentVideos();
             <?php
             for ($i = 0; $i < 3; $i++) {
                 ?>
-                <a href="/views/video.php?<?php echo $videos[$i]['ID'] ?>"><div class="main-video"><h3><?php echo $videos[$i]['Title'] ?></h3></div></a>
+                <a href="/views/video.php?v=<?php echo $videos[$i]['ID'] ?>"><div class="main-video"><h3><?php echo $videos[$i]['Title'] ?></h3></div></a>
                 <?php
             }
             ?>
@@ -24,7 +25,7 @@ $videos = $dao->getRecentVideos();
         <div id="sidebar">
             <div id="latest-post" class="side-chunk">
                 <div class="side-label"><h3>Latest Post</h3></div>
-                <div class="side-post"><p>Post 1</p></div>
+                <a href="/views/blog.php?p=<?php echo $latestPost['ID'];?>"><div class="side-post"><p><?php echo $latestPost['Title'];?></p></div></a>
             </div>
 
             <div id="popular-videos" class="side-chunk">
