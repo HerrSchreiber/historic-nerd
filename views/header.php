@@ -50,9 +50,8 @@ if (session_status() == PHP_SESSION_NONE) {
         <?php if (isset($_SESSION['user'])) { ?>
             <div id="logged-in">
                 <p>Logged in as <?php
-                    if ($_SESSION['user'] == 'Admin') echo "<a href=\"/admin.php\">";
                     echo $_SESSION['user'];
-                    if ($_SESSION['user'] == 'Admin') echo "</a>"; ?>
+                    if ($_SESSION['user'] == 'Admin') echo " <a href=\"/admin.php\">(Control Panel)</a>"; ?>
                 </p>
             </div>
         <?php } ?>
