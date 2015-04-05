@@ -5,7 +5,7 @@ require "header.php";
     <div id="container">
         <div id="main">
             <div id="video">
-                <h1>VIDEO PLAYER</h1>
+                <iframe width="630" height="354" src="https://www.youtube.com/embed/<?php echo $_GET['v'];?>" frameborder="0" allowfullscreen></iframe>
             </div>
             <div id="video-thumb">
                 <h1>VIDEO THUMBNAIL</h1>

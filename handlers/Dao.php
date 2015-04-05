@@ -79,7 +79,7 @@ class Dao {
 
     public function getRecentVideos () {
         $conn = $this->getConnection();
-        $getQuery = "SELECT Title, ID FROM videos ORDER BY DateAdded";
+        $getQuery = "SELECT Title, ID, YouTubeVideoID FROM videos ORDER BY DateAdded";
         $q = $conn->prepare($getQuery);
         $q->execute();
         $dbResults = $q->fetchAll();

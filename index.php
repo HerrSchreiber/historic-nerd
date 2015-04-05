@@ -16,7 +16,7 @@ $latestPost = $dao->getRecentPosts()[0];
             <?php
             for ($i = 0; $i < 3; $i++) {
                 ?>
-                <a href="/views/video.php?v=<?php echo $videos[$i]['ID'] ?>"><div class="main-video"><h3><?php echo $videos[$i]['Title'] ?></h3></div></a>
+                <a href="/views/video.php?v=<?php echo $videos[$i]['YouTubeVideoID'] ?>"><div class="main-video"><h3><?php echo $videos[$i]['Title'] ?></h3></div></a>
                 <?php
             }
             ?>
