@@ -25,7 +25,7 @@ $latestPost = $dao->getRecentPosts()[0];
         <div id="sidebar">
             <div id="latest-post" class="side-chunk">
                 <div class="side-label"><h3>Latest Post</h3></div>
-                <a href="/views/blog.php?p=<?php echo $latestPost['ID'];?>"><div class="side-post"><p><?php echo $latestPost['Title'];?></p></div></a>
+                <a href="/views/blog.php?p=<?php echo $latestPost['ID'];?>"><div class="side-post"><h3><?php echo $latestPost['Title'];?></h3></div></a>
             </div>
 
             <div id="popular-videos" class="side-chunk">
