@@ -1,13 +1,16 @@
 <?php
 require "header.php";
+require_once "../handlers/Dao.php";
+$dao = new Dao();
+$post = $dao->getPost($_GET['p']);
 ?>
 
     <div id="container">
         <div id="main">
             <div id="post">
-                <h1>POST TITLE</h1>
+                <h1><?php echo $post['Title'];?></h1>
 
-                <p></p>
+                <p><?php echo $post['Post'];?></p>
             </div>
             <div class="main-label"><h3>Comments</h3></div>
             <div id="comments">

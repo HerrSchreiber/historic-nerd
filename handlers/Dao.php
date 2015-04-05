@@ -77,6 +77,15 @@ class Dao {
         $q->execute();
     }
 
+    public function getPost ($id) {
+        $conn = $this->getConnection();
+        $getQuery = "SELECT * FROM blogposts WHERE ID = :id";
+        $q = $conn->prepare($getQuery);
+        $q->bindParam(':id', $id);
+        $q->execute();
+        return $q->fetch();
+    }
+
     public function getRecentVideos () {
         $conn = $this->getConnection();
         $getQuery = "SELECT Title, ID, YouTubeVideoID FROM videos ORDER BY DateAdded";
