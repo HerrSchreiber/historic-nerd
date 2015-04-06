@@ -30,11 +30,13 @@ $latestPost = $dao->getRecentPosts()[0];
 
             <div id="popular-videos" class="side-chunk">
                 <div class="side-label"><h3>Popular Videos</h3></div>
-                <div class="side-video"><p>Video 4</p></div>
-                <div class="side-video"><p>Video 5</p></div>
-                <div class="side-video"><p>Video 6</p></div>
-                <div class="side-video"><p>Video 7</p></div>
-                <div class="side-video"><p>Video 8</p></div>
+                <?php
+                for ($i = 0; $i < 5; $i++) {
+                    ?>
+                    <a href="/views/video.php?v=<?php echo $videos[$i]['YouTubeVideoID'] ?>"><div class="side-video"><h3><?php echo $videos[$i]['Title'] ?></h3></div></a>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </div>

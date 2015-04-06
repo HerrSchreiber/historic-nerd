@@ -104,4 +104,32 @@ class Dao {
         return $dbResults;
     }
 
+    public function getVideoComments ($ytid) {
+        $conn = $this->getConnection();
+        $getQuery = "SELECT UserName, Comment, DateCreated, comments.ID FROM videos JOIN comments ON (videos.ID = VideoID) JOIN users ON (comments.Email = users.Email) WHERE YouTubeVideoID = :ytid";
+        $q = $conn->prepare($getQuery);
+        $q->bindParam(":ytid", $ytid);
+        $q->execute();
+        $dbResults = $q->fetchAll();
+        return $dbResults;
+    }
+
+    public function createVideoComment ($ytid, $user, $comment) {
+        $conn = $this->getConnection();
+        $createQuery = "INSERT INTO comments (Comment, Email, DateCreated, VideoID) VALUES(:comment, (SELECT Email FROM users WHERE UserName = :user), NOW(), (SELECT ID FROM videos WHERE YouTubeVideoID = :ytid))";
+        $q = $conn->prepare($createQuery);
+        $q->bindParam(":comment", $comment);
+        $q->bindParam(":user", $user);
+        $q->bindParam(":ytid", $ytid);
+        $q->execute();
+    }
+
+    public function deleteComment($commentID) {
+        $conn = $this->getConnection();
+        $deleteQuery = "DELETE FROM comments WHERE ID = :id";
+        $q = $conn->prepare($deleteQuery);
+        $q->bindParam(":id", $commentID);
+        $q->execute();
+    }
+
 }
