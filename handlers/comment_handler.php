@@ -48,6 +48,7 @@ if ($_POST['action']=='create') {
 }
 elseif ($_GET['action'] == 'delete') {
     $dao->deleteComment($_GET['id']);
+    header("Location:/views/video.php?v=" . $_GET['ytid']);
     if (isset($_GET['ytid'])) {
         header("Location:/views/video.php?v=" . $_GET['ytid']);
     }
@@ -55,4 +56,6 @@ elseif ($_GET['action'] == 'delete') {
         header("Location:/views/blog.php?p=" . $_GET['pid']);
     }
 }
-header("Location:/");
+else {
+    header("Location:/");
+}
