@@ -1,5 +1,6 @@
 <?php
 session_start();
+if (!isset($_GET['v'])) header("Location:/");
 require "header.php";
 require_once "../handlers/Dao.php";
 
@@ -59,9 +60,9 @@ $videos = $dao->getRecentVideos();
                 foreach ($comments as $comment) {
                 ?>
                     <div>
-                        <h4><?php echo $comment['UserName'];?>:</h4>
+                        <h4><?php echo $comment['UserName'] . " on " . $comment['DateCreated'];?>:</h4>
                         <p><?php echo $comment['Comment']." ";
-                            if (isset ($_SESSION['user']) && $comment['UserName']==$_SESSION['user']) { ?>
+                            if (isset ($_SESSION['user']) && ($comment['UserName']==$_SESSION['user'] || $_SESSION['user'] == "Admin")) { ?>
                                 <a href="/handlers/comment_handler.php?action=delete&id=<?php echo $comment['ID'];?>&ytid=<?php echo $_GET['v'];?>">(Delete)</a>
                             <?php } ?></p>
                     </div>

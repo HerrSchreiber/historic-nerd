@@ -114,6 +114,16 @@ class Dao {
         return $dbResults;
     }
 
+    public function getBlogComments ($pid) {
+        $conn = $this->getConnection();
+        $getQuery = "SELECT UserName, Comment, DateCreated, comments.ID FROM blogposts JOIN comments ON (blogposts.ID = BlogID) JOIN users ON (comments.Email = users.Email) WHERE blogposts.ID = :pid";
+        $q = $conn->prepare($getQuery);
+        $q->bindParam(":pid", $pid);
+        $q->execute();
+        $dbResults = $q->fetchAll();
+        return $dbResults;
+    }
+
     public function createVideoComment ($ytid, $user, $comment) {
         $conn = $this->getConnection();
         $createQuery = "INSERT INTO comments (Comment, Email, DateCreated, VideoID) VALUES(:comment, (SELECT Email FROM users WHERE UserName = :user), NOW(), (SELECT ID FROM videos WHERE YouTubeVideoID = :ytid))";
@@ -121,6 +131,16 @@ class Dao {
         $q->bindParam(":comment", $comment);
         $q->bindParam(":user", $user);
         $q->bindParam(":ytid", $ytid);
+        $q->execute();
+    }
+
+    public function createBlogComment ($pid, $user, $comment) {
+        $conn = $this->getConnection();
+        $createQuery = "INSERT INTO comments (Comment, Email, DateCreated, BlogID) VALUES(:comment, (SELECT Email FROM users WHERE UserName = :user), NOW(), :pid)";
+        $q = $conn->prepare($createQuery);
+        $q->bindParam(":comment", $comment);
+        $q->bindParam(":user", $user);
+        $q->bindParam(":pid", $pid);
         $q->execute();
     }
 

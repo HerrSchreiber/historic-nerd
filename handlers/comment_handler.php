@@ -39,10 +39,10 @@ if ($_POST['action']=='create') {
         }
 
         if ($_SESSION["status"] == 0) {
-            $dao->createVideoComment($_POST['ytid'], $_SESSION['user'], $comment);
-            header("Location:/views/video.php?v=" . $_POST['ytid']);
+            $dao->createBlogComment($_POST['pid'], $_SESSION['user'], $comment);
+            header("Location:/views/blog.php?p=" . $_POST['pid']);
         } else {
-            header("Location:/views/video.php?v=" . $_POST['ytid']);
+            header("Location:/views/blog.php?p=" . $_POST['pid']);
         }
     }
 }
