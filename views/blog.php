@@ -27,7 +27,7 @@ define("COMMENT_TOO_LONG", 2);
 
                         <div>
                             <label for="comment">Comment</label>
-                            <textarea name="comment" id="comment">Enter comment here...</textarea>
+                            <textarea name="comment" id="comment" rows="4" cols="50">Enter comment here...</textarea>
                         </div>
 
                         <?php if (isset($_SESSION["status"]) && ($_SESSION["status"] & NO_COMMENT_ENTERED) === NO_COMMENT_ENTERED) { ?>

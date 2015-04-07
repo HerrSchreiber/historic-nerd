@@ -126,7 +126,7 @@ require "/views/header.php";
 
                     <div>
                         <label for="post-content">Post Content</label>
-                        <textarea name="post" id="post-content"><?php echo $post_content; ?></textarea>
+                        <textarea name="post" id="post-content" rows="20" cols="100"><?php echo $post_content; ?></textarea>
                     </div>
 
                     <?php if (isset($_SESSION["status"]) && ($_SESSION["status"] & POST_NO_CONTENT_ENTERED) === POST_NO_CONTENT_ENTERED) { ?>
