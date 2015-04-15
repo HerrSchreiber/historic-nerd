@@ -25,13 +25,13 @@ if ($_POST["submit"] == "Login") {
         $_SESSION["user"] = $user["UserName"];
         $_SESSION["admin"] = $user["Admin"];
 
-        header ("Location:/");
+        header ("Location:/~rschreib/");
     }
     else {
         $_SESSION["status"] |= INVALID_USER_NAME_OR_PASSWORD;
         $_SESSION["email_login_preset"] = $_POST["login-email"];
 
-        header("Location:/login.php");
+        header("Location:/~rschreib/login.php");
     }
 }
 else if ($_POST["submit"] == "Register") {
@@ -83,9 +83,9 @@ else if ($_POST["submit"] == "Register") {
         $_SESSION["user"] = $userName;
         $_SESSION["admin"] = 0;
         $dao->createUser($email, $userName, $_POST["password"]);
-        header("Location:/");
+        header("Location:/~rschreib/");
     }
     else {
-        header("Location:/login.php");
+        header("Location:/~rschreib/login.php");
     }
 }

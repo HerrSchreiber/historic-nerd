@@ -21,7 +21,7 @@ $post_title = isset($_SESSION["post_title_preset"])?$_SESSION["post_title_preset
 $post_tags = isset($_SESSION["post_tags_preset"])?$_SESSION["post_tags_preset"]:"";
 $post_content = isset($_SESSION["post_content_preset"])?$_SESSION["post_content_preset"]:"Enter text here...";
 
-require "/views/header.php";
+require "views/header.php";
 ?>
     <div id="container">
         <div id="control-panel">
@@ -35,7 +35,7 @@ require "/views/header.php";
             if (isset($_SESSION['status']) && $_SESSION['status'] == 0) {?>
                 <h4>Video added successfully!</h4>
             <?php } ?>
-            <form action="/handlers/admin_handler.php" method="POST">
+            <form action="/~rschreib/handlers/admin_handler.php" method="POST">
                 <div>
                     <label for="title">Title</label>
                     <input type="text" name="title" id="title" value="<?php echo $video_title; ?>"/>
@@ -92,7 +92,7 @@ require "/views/header.php";
                 if (isset($_SESSION['status']) && $_SESSION['status'] == 0) {?>
                     <h4>Post added successfully!</h4>
                 <?php } ?>
-                <form action="/handlers/admin_handler.php" method="POST">
+                <form action="/~rschreib/handlers/admin_handler.php" method="POST">
                     <div>
                         <label for="title">Title</label>
                         <input type="text" name="title" id="title" value="<?php echo $post_title; ?>"/>
@@ -152,5 +152,5 @@ require "/views/header.php";
         </div>
     </div>
 <?php
-require "/views/footer.php";
+require "views/footer.php";
 ?>

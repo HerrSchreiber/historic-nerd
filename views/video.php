@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_GET['v'])) header("Location:/");
+if (!isset($_GET['v'])) header("Location:/~rschreib/");
 require "header.php";
 require_once "../handlers/Dao.php";
 
@@ -27,7 +27,7 @@ $videos = $dao->getRecentVideos();
                     if (isset($_SESSION['status']) && $_SESSION['status'] == 0) {?>
                         <h4>Post added successfully!</h4>
                     <?php } ?>
-                    <form action="/handlers/comment_handler.php" method="POST">
+                    <form action="/~rschreib/handlers/comment_handler.php" method="POST">
 
                         <div>
                             <label for="comment">Comment</label>
@@ -63,7 +63,7 @@ $videos = $dao->getRecentVideos();
                         <h4><?php echo $comment['UserName'] . " on " . $comment['DateCreated'];?>:</h4>
                         <p><?php echo $comment['Comment']." ";
                             if (isset ($_SESSION['user']) && ($comment['UserName']==$_SESSION['user'] || $_SESSION['user'] == "Admin")) { ?>
-                                <a href="/handlers/comment_handler.php?action=delete&id=<?php echo $comment['ID'];?>&ytid=<?php echo $_GET['v'];?>">(Delete)</a>
+                                <a href="/~rschreib/handlers/comment_handler.php?action=delete&id=<?php echo $comment['ID'];?>&ytid=<?php echo $_GET['v'];?>">(Delete)</a>
                             <?php } ?></p>
                     </div>
                 <?php } ?>
@@ -76,7 +76,7 @@ $videos = $dao->getRecentVideos();
                 <?php
                 for ($i = 0; $i < 5; $i++) {
                     ?>
-                    <a href="/views/video.php?v=<?php echo $videos[$i]['YouTubeVideoID'] ?>"><div class="side-video"><h3><?php echo $videos[$i]['Title'] ?></h3></div></a>
+                    <a href="/~rschreib/views/video.php?v=<?php echo $videos[$i]['YouTubeVideoID'] ?>"><div class="side-video"><h3><?php echo $videos[$i]['Title'] ?></h3></div></a>
                 <?php
                 }
                 ?>

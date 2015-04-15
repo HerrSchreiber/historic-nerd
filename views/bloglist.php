@@ -11,7 +11,7 @@ if ($page > (count($posts) / 10) + 1) $page = floor(count($posts) / 10) + 1;
         <?php
         for ($i = ($page - 1) * 10; $i < ($page - 1) * 10 + 10; $i++) {
             ?>
-            <a href="/views/blog.php?p=<?php echo $posts[$i]['ID'] ?>"><div class="main-video"><h3><?php echo $posts[$i]['Title'] ?></h3></div></a>
+            <a href="/~rschreib/views/blog.php?p=<?php echo $posts[$i]['ID'] ?>"><div class="main-video"><h3><?php echo $posts[$i]['Title'] ?></h3></div></a>
             <?php
             if ($i >= count($posts) - 1) break;
         }

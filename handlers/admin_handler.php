@@ -47,10 +47,10 @@ if ($_POST["submit"] == "Add Video") {
         unset($_SESSION["video_title_preset"]);
         unset($_SESSION["video_ytid_preset"]);
         unset($_SESSION["video_tags_preset"]);
-        header("Location:/admin.php?action=video");
+        header("Location:/~rschreib/admin.php?action=video");
     }
     else {
-        header("Location:/admin.php?action=video");
+        header("Location:/~rschreib/admin.php?action=video");
     }
 }
 else if ($_POST["submit"] == "Add Post") {
@@ -87,9 +87,9 @@ else if ($_POST["submit"] == "Add Post") {
         unset($_SESSION["post_title_preset"]);
         unset($_SESSION["post_content_preset"]);
         unset($_SESSION["post_tags_preset"]);
-        header("Location:/admin.php?action=post");
+        header("Location:/~rschreib/admin.php?action=post");
     }
     else {
-        header("Location:/admin.php?action=post");
+        header("Location:/~rschreib/admin.php?action=post");
     }
 }

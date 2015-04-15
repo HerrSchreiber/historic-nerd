@@ -1,5 +1,5 @@
 <?php
-require "/views/header.php";
+require "views/header.php";
 define("INVALID_USER_NAME_OR_PASSWORD", 1);
 define("PASSWORDS_DO_NOT_MATCH", 2);
 define("USERNAME_TOO_LONG", 4);
@@ -18,7 +18,7 @@ $user = isset($_SESSION["user_preset"])?$_SESSION["user_preset"]:"";
 
     <div id="container">
         <div id="log-in"><h2>Log In</h2>
-            <form action="/handlers/login_handler.php" method="POST">
+            <form action="/~rschreib/handlers/login_handler.php" method="POST">
                 <div>
                     <label for="login-email">Email</label>
                     <input type="text" name="login-email" id="login-email" value="<?php echo $loginEmail; ?>"/>
@@ -40,7 +40,7 @@ $user = isset($_SESSION["user_preset"])?$_SESSION["user_preset"]:"";
         </div>
 
         <div id="register"><h2>Register</h2>
-            <form action="/handlers/login_handler.php" method="POST">
+            <form action="/~rschreib/handlers/login_handler.php" method="POST">
                 <?php $userError = (isset($_SESSION["status"]) && ($_SESSION["status"] & USERNAME_TOO_LONG) === USERNAME_TOO_LONG) ||
                                    (isset($_SESSION["status"]) && ($_SESSION["status"] & USERNAME_ALREADY_TAKEN) === USERNAME_ALREADY_TAKEN) ||
                                    (isset($_SESSION["status"]) && ($_SESSION["status"] & NO_USERNAME_ENTERED) === NO_USERNAME_ENTERED); ?>
@@ -121,5 +121,5 @@ $user = isset($_SESSION["user_preset"])?$_SESSION["user_preset"]:"";
 
 
 <?php
-require "/views/footer.php";
+require "views/footer.php";
 ?>

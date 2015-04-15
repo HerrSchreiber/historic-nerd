@@ -11,7 +11,7 @@ if ($page > (count($videos) / 10) + 1) $page = floor(count($videos) / 10) + 1;
         <?php
         for ($i = ($page - 1) * 10; $i < ($page - 1) * 10 + 10; $i++) {
             ?>
-            <a href="/views/video.php?v=<?php echo $videos[$i]['YouTubeVideoID'] ?>"><div class="main-video"><h3><?php echo $videos[$i]['Title'] ?></h3></div></a>
+            <a href="/~rschreib/views/video.php?v=<?php echo $videos[$i]['YouTubeVideoID'] ?>"><div class="main-video"><h3><?php echo $videos[$i]['Title'] ?></h3></div></a>
         <?php
             if ($i >= count($videos) - 1) break;
         }

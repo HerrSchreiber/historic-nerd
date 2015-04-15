@@ -17,7 +17,7 @@ $latestPost = $latestPosts[0];
             <?php
             for ($i = 0; $i < 3; $i++) {
                 ?>
-                <a href="/views/video.php?v=<?php echo $videos[$i]['YouTubeVideoID'] ?>"><div class="main-video"><h3><?php echo $videos[$i]['Title'] ?></h3></div></a>
+                <a href="/~rschreib/views/video.php?v=<?php echo $videos[$i]['YouTubeVideoID'] ?>"><div class="main-video"><h3><?php echo $videos[$i]['Title'] ?></h3></div></a>
                 <?php
             }
             ?>
@@ -26,7 +26,7 @@ $latestPost = $latestPosts[0];
         <div id="sidebar">
             <div id="latest-post" class="side-chunk">
                 <div class="side-label"><h3>Latest Post</h3></div>
-                <a href="/views/blog.php?p=<?php echo $latestPost['ID'];?>"><div class="side-post"><h3><?php echo $latestPost['Title'];?></h3></div></a>
+                <a href="/~rschreib/views/blog.php?p=<?php echo $latestPost['ID'];?>"><div class="side-post"><h3><?php echo $latestPost['Title'];?></h3></div></a>
             </div>
 
             <div id="popular-videos" class="side-chunk">
@@ -34,7 +34,7 @@ $latestPost = $latestPosts[0];
                 <?php
                 for ($i = 0; $i < 5; $i++) {
                     ?>
-                    <a href="/views/video.php?v=<?php echo $videos[$i]['YouTubeVideoID'] ?>"><div class="side-video"><h3><?php echo $videos[$i]['Title'] ?></h3></div></a>
+                    <a href="/~rschreib/views/video.php?v=<?php echo $videos[$i]['YouTubeVideoID'] ?>"><div class="side-video"><h3><?php echo $videos[$i]['Title'] ?></h3></div></a>
                 <?php
                 }
                 ?>
