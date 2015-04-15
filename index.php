@@ -4,7 +4,8 @@ unset($_SESSION['status']);
 require_once "handlers/Dao.php";
 $dao = new Dao();
 $videos = $dao->getRecentVideos();
-$latestPost = $dao->getRecentPosts()[0];
+$latestPosts = $dao->getRecentPosts();
+$latestPost = $latestPosts[0];
 ?>
 
     <div id="container">
