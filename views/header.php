@@ -7,8 +7,8 @@ if (session_id() === '') {
 <html>
 <head>
     <title>Historic Nerd</title>
-    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
-    <link rel="shortcut icon" href="../favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
     <link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
 </head>
@@ -26,22 +26,22 @@ if (session_id() === '') {
 
         <div id="nav">
             <ul>
-                <a href="../views/videolist.php">
+                <a href="views/videolist.php">
                     <li class="button"><p>Videos</p></li>
                 </a>
-                <a href="../views/bloglist.php">
+                <a href="views/bloglist.php">
                     <li class="button"><p>Blog Posts</p></li>
                 </a>
                 <?php
                 if (isset($_SESSION["user"])) {
                 ?>
-                <a href="../logout.php">
+                <a href="logout.php">
                     <li class="button"><p>Log Out</p></li>
                 </a>
                 <?php }
                 else {
                 ?>
-                <a href="../login.php">
+                <a href="login.php">
                     <li class="button"><p>Log In</p></li>
                 </a>
                 <?php } ?>
@@ -51,7 +51,7 @@ if (session_id() === '') {
             <div id="logged-in">
                 <p>Logged in as <?php
                     echo $_SESSION['user'];
-                    if ($_SESSION['user'] == 'Admin') echo " <a href=\"../admin.php\">(Control Panel)</a>"; ?>
+                    if ($_SESSION['user'] == 'Admin') echo " <a href=\"admin.php\">(Control Panel)</a>"; ?>
                 </p>
             </div>
         <?php } ?>
