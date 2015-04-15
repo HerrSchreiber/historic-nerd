@@ -20,7 +20,7 @@ if (session_id() === '') {
 <![endif]-->
 
 <div id="banner">
-    <a href="/"><h1>Historic Nerd</h1></a>
+    <a href="/~rschreib/"><h1>Historic Nerd</h1></a>
 
     <div id="nav-container">
 
