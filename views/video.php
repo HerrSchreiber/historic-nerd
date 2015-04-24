@@ -27,7 +27,7 @@ $videos = $dao->getRecentVideos();
                     if (isset($_SESSION['status']) && $_SESSION['status'] == 0) {?>
                         <h4>Post added successfully!</h4>
                     <?php } ?>
-                    <form action="/~rschreib/handlers/comment_handler.php" method="POST">
+                    <form id="comments-form" action="/~rschreib/handlers/comment_handler.php" method="POST">
 
                         <div>
                             <label for="comment">Comment</label>
