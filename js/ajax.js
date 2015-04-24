@@ -15,6 +15,7 @@
                 alert("FAILURE");
             }
         });
+        e.preventDefault();
         return false;
     });
 
