@@ -1,5 +1,5 @@
 //$(function() {
-    $("#comments-form").submit(function(){
+    $("#comments-form").submit(function(e){
         var values = $("#comments-form").serialize();
         var comment = $("#comment").val();
         console.log(values);
