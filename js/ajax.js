@@ -1,6 +1,6 @@
 $(function() {
     $("#comments-form").submit(function(){
-        var values = $("form").serialize();
+        var values = $("#comments-form").serialize();
         var comment = $("#comment").val();
         console.log(values);
         $.ajax({
