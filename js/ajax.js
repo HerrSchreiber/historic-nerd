@@ -1,4 +1,4 @@
-$(function() {
+//$(function() {
     $("#comments-form").submit(function(){
         var values = $("#comments-form").serialize();
         var comment = $("#comment").val();
@@ -18,4 +18,4 @@ $(function() {
         return false;
     });
 
-});
+//});
