@@ -47,6 +47,7 @@ if ($_POST['action']=='create') {
     }
 }
 elseif ($_GET['action'] == 'delete') {
+	unset($_SESSION['status']);
     $dao->deleteComment($_GET['id']);
     header("Location:/~rschreib/views/video.php?v=" . $_GET['ytid']);
     if (isset($_GET['ytid'])) {
