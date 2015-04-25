@@ -8,10 +8,11 @@ if (session_id() === '') {
 <head>
     <title>Historic Nerd</title>
     <link rel="stylesheet" type="text/css" href="/~rschreib/css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.2/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.2/slick-theme.css"/>
     <link rel="shortcut icon" href="/~rschreib/favicon.ico"/>
     <link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
-	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>

@@ -24,6 +24,7 @@ $(document).ready(function(){
 			return false;
 		}
 	});
+	$("#carousel").slick({autoplay:true, dots:true});
 });
 
 function escapeHTML(text) {

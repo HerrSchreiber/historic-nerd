@@ -11,7 +11,14 @@ $latestPost = $latestPosts[0];
     <div id="container">
         <div id="main">
             <div id="carousel">
-                <h1>CAROUSEL</h1>
+                <?php
+                for ($i = 0; $i < 5; $i++) {
+                    ?>
+                    <a href="/~rschreib/views/video.php?v=<?php echo $videos[$i]['YouTubeVideoID'] ?>"><div><h3><?php echo $videos[$i]['Title'] ?></h3></div></a>
+                <?php
+                }
+                ?>
+
             </div>
             <div class="main-label"><h3>Recent Videos</h3></div>
             <?php
